@@ -11,6 +11,10 @@ composeBom = "2024.04.01"
 navigationCompose = "2.8.2"
 kotlinxSerialization = "1.6.3"
 runtimeLivedata = "1.7.4"
+daggerHilt = "2.52"
+coil3 = "3.0.0-rc01"
+retrofit2 = "2.11.0"
+hiltNavigation = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,9 +34,19 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
+io-coil-compose  = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil3" }
+io-coil-network  = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil3" }
+squareup-retrofit2  = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
+squareup-retrofit2-gson   = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit2" }
+google-dagger-hilt  = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
+google-dagger-hilt-kapt  = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
+androidx-hilt-navigation  = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrainsKotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+daggerHilt = {id = "com.google.dagger.hilt.android" ,version.ref = "daggerHilt"}
 

@@ -6,12 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.erick.buendia.disneyapp.domain.GetHomeAmiiboUseCase
 import com.erick.buendia.disneyapp.domain.model.AmiiboModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeAmiiboViewModel : ViewModel() {
 
-    private val getHomeAmiiboUseCase = GetHomeAmiiboUseCase()
+@HiltViewModel
+class HomeAmiiboViewModel @Inject constructor(private val getHomeAmiiboUseCase: GetHomeAmiiboUseCase) : ViewModel() {
 
     private val _amiiboList = MutableLiveData<List<AmiiboModel>>()
     val amiiboList: LiveData<List<AmiiboModel>> = _amiiboList

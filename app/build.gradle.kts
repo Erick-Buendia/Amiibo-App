@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.jetbrainsKotlinSerialization)
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -60,18 +62,18 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    //Navigation Compose
     implementation(libs.androidx.navigation.compose)
-    //Kotlin Serialization
     implementation(libs.kotlinx.serialization.json)
-    //Coil3 para cargar imagenes desde internet
-    implementation("io.coil-kt.coil3:coil-compose:3.0.0-rc01")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.0-rc01")
-    //Retofit para las peticiones a la API
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation(libs.androidx.runtime.livedata)
+    implementation(libs.io.coil.compose)
+    implementation(libs.io.coil.network)
+    implementation(libs.squareup.retrofit2)
+    implementation(libs.squareup.retrofit2.gson)
+    implementation(libs.google.dagger.hilt)
+    kapt(libs.google.dagger.hilt.kapt)
+    implementation(libs.androidx.hilt.navigation)
 
+    implementation(libs.squareup.retrofit2.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

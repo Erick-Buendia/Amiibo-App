@@ -14,7 +14,7 @@ fun NavigationWrapper(navController: NavHostController) {
 
     NavHost(navController = navController, startDestination = NavScreen.HomeScreen.name) {
         composable(NavScreen.HomeScreen.name) {
-            ListAmiiboScreen(modifier = Modifier, viewModel = HomeAmiiboViewModel())
+            ListAmiiboScreen(modifier = Modifier)
         }
         composable(NavScreen.FavoriteScreen.name) {
             FavoriteAmiiboScreen(modifier = Modifier)
