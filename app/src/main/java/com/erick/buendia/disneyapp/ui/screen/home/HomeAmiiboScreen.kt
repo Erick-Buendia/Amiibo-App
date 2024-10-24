@@ -26,7 +26,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.erick.buendia.disneyapp.R
-import com.erick.buendia.disneyapp.data.model.Amiibo
+import com.erick.buendia.disneyapp.domain.model.AmiiboModel
 
 
 @Composable
@@ -66,7 +66,7 @@ fun AmiiboGrid(modifier: Modifier = Modifier, viewModel: HomeAmiiboViewModel) {
 
 @Composable
 fun AmiiboCard(
-    amiibo:Amiibo,
+    amiibo:AmiiboModel,
     modifier: Modifier = Modifier
 ) {
     Card(
