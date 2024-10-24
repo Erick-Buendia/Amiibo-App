@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Disney App</string>
+    <string name="title_activity_list_characters">ListCharactersActivity</string>
 </resources>
