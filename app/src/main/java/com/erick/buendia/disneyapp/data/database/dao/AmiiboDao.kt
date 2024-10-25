@@ -12,6 +12,9 @@ interface AmiiboDao {
     @Query("SELECT * FROM amiibo_table ORDER BY id DESC")
     suspend fun getAllAmiibo(): List<AmiiboEntity>
 
+    @Query("SELECT * FROM amiibo_table WHERE amiibo_id = :id")
+    suspend fun findByIdAmiibo(id: String): AmiiboEntity
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(amiibo: List<AmiiboEntity>)
 

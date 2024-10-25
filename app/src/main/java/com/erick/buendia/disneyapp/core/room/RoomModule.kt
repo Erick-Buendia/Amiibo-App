@@ -20,10 +20,15 @@ object RoomModule {
     fun provideRoom(@ApplicationContext context: Context) = Room.databaseBuilder(
         context, AmiiboDataBase::class.java,
         DATABASE_NAME
-    ).build()
+    ).fallbackToDestructiveMigration().build()
 
     @Singleton
     @Provides
     fun provideAmiiboDao(db: AmiiboDataBase) = db.getAmiiboDao()
+
+    @Singleton
+    @Provides
+    fun provideFavoriteDao(db: AmiiboDataBase) = db.getFavoriteDao()
+
 
 }

@@ -1,5 +1,6 @@
 package com.erick.buendia.disneyapp.ui.screen.home
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -21,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -31,14 +34,17 @@ import com.erick.buendia.disneyapp.domain.model.AmiiboModel
 
 
 @Composable
-fun ListAmiiboScreen(modifier: Modifier = Modifier, viewModel: HomeAmiiboViewModel  = hiltViewModel()) {
+fun ListAmiiboScreen(
+    modifier: Modifier = Modifier,
+    viewModel: HomeAmiiboViewModel = hiltViewModel()
+) {
 
     viewModel.getAmiiboList()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
     ) {
-        AmiiboGrid(modifier = modifier.padding(top = 16.dp),viewModel)
+        AmiiboGrid(modifier = modifier.padding(top = 16.dp), viewModel)
     }
 
 }
@@ -57,7 +63,8 @@ fun AmiiboGrid(modifier: Modifier = Modifier, viewModel: HomeAmiiboViewModel) {
         items(amiiboList) { amiibo ->
             AmiiboCard(
                 amiibo,
-                modifier = Modifier
+                modifier = Modifier,
+                viewModel
             )
 
         }
@@ -67,8 +74,9 @@ fun AmiiboGrid(modifier: Modifier = Modifier, viewModel: HomeAmiiboViewModel) {
 
 @Composable
 fun AmiiboCard(
-    amiibo:AmiiboModel,
-    modifier: Modifier = Modifier
+    amiibo: AmiiboModel,
+    modifier: Modifier = Modifier,
+    viewModel: HomeAmiiboViewModel
 ) {
     Card(
         colors = CardDefaults.cardColors(
@@ -78,7 +86,9 @@ fun AmiiboCard(
         modifier = modifier,
 
         ) {
-        Row(modifier = modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+
+
+        Row(modifier = modifier.fillMaxWidth()) {
             AsyncImage(
                 model = amiibo.image,
                 contentDescription = null,
@@ -86,12 +96,14 @@ fun AmiiboCard(
                 modifier = Modifier
                     .size(90.dp)
 
+
             )
             Column() {
                 Text(
                     text = amiibo.name,
                     style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier.padding(horizontal = 16.dp)
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp)
                 )
                 Row(modifier = Modifier.padding(start = 16.dp)) {
                     Icon(
@@ -117,6 +129,39 @@ fun AmiiboCard(
                 }
             }
 
+            Column(
+                modifier = Modifier
+                    .align(Alignment.Bottom)
+                    .fillMaxWidth()
+
+            ) {
+                if (amiibo.isFavorite) {
+                    IconButton(modifier = Modifier.align(Alignment.End), onClick = {
+                        viewModel.removeFavoriteAmiibo(amiibo)
+                    }) {
+                        Icon(
+                            painterResource(R.drawable.icon_favorite),
+                            contentDescription = "",
+                            tint = Color(0xFFCE1616)
+                        )
+                    }
+                } else {
+                    IconButton(modifier = Modifier.align(Alignment.End), onClick = {
+                        viewModel.addFavoriteAmiibo(amiibo)
+                    }) {
+                        Icon(
+                            painterResource(R.drawable.icon_favorite),
+                            contentDescription = "",
+                            tint = Color(0xFFA9A9A9)
+                        )
+                    }
+                }
+
+            }
+
+
         }
+
+
     }
 }

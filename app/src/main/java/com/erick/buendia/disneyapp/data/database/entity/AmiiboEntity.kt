@@ -36,3 +36,12 @@ fun AmiiboModel.toDataBase(): AmiiboEntity {
     )
 }
 
+fun AmiiboEntity.toDomainFavorite(): FavoriteAmiiboEntity {
+    return FavoriteAmiiboEntity(
+        amiiboId = amiiboId,
+        name = name,
+        gameSeries = gameSeries,
+        character = character,
+        image = image
+    )
+}
