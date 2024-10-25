@@ -1,6 +1,6 @@
 # Amiibo-App
 
-Amiibo-App es una aplicación que te permite explorar y guardar en favoritos tus colecciones de Amiibo utilizando la [Amiibo API](https://www.amiiboapi.com/api/amiibo/).
+Amiibo-App es una aplicación que te permite explorar y guardar en favoritos tus colecciones de Amiibo utilizando la [Amiibo API](https://www.amiiboapi.com).
 
 ## API Reference
 
