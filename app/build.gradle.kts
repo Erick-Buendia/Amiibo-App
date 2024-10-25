@@ -72,7 +72,8 @@ dependencies {
     implementation(libs.google.dagger.hilt)
     kapt(libs.google.dagger.hilt.kapt)
     implementation(libs.androidx.hilt.navigation)
-
+    implementation(libs.androidx.room)
+    kapt(libs.androidx.room.compiler)
     implementation(libs.squareup.retrofit2.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

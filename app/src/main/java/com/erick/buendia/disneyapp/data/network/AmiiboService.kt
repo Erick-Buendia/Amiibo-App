@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class AmiiboService @Inject constructor(private val api: AmiiboApiClient) {
 
-    suspend fun getAmiibo(): AmiiboResponse {
+    suspend fun getAllAmiibo(): AmiiboResponse {
         return withContext(Dispatchers.IO) {
             val response = api.getAllAmiibo()
             response.body()!!

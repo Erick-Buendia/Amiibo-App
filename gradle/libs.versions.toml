@@ -15,6 +15,7 @@ daggerHilt = "2.52"
 coil3 = "3.0.0-rc01"
 retrofit2 = "2.11.0"
 hiltNavigation = "1.0.0"
+roomVersion = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,7 +42,8 @@ squareup-retrofit2-gson   = { group = "com.squareup.retrofit2", name = "converte
 google-dagger-hilt  = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHilt" }
 google-dagger-hilt-kapt  = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHilt" }
 androidx-hilt-navigation  = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigation" }
-
+androidx-room  = { group = "androidx.room", name = "room-ktx" , version.ref = "roomVersion" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
 
 
 [plugins]
