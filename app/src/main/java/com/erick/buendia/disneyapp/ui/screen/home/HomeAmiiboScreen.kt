@@ -38,15 +38,12 @@ fun ListAmiiboScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeAmiiboViewModel = hiltViewModel()
 ) {
-
     viewModel.getAmiiboList()
-
     Surface(
         modifier = Modifier.fillMaxSize(),
     ) {
         AmiiboGrid(modifier = modifier.padding(top = 16.dp), viewModel)
     }
-
 }
 
 

@@ -3,6 +3,7 @@ package com.erick.buendia.disneyapp.data.database.entity
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.erick.buendia.disneyapp.domain.model.AmiiboModel
 
 @Entity(tableName = "favorite_amiibo_table")
 data class FavoriteAmiiboEntity(
@@ -19,4 +20,12 @@ data class FavoriteAmiiboEntity(
     val character: String,
     @ColumnInfo(name = "image")
     val image: String
+)
+
+fun FavoriteAmiiboEntity.toDomain() = AmiiboModel(
+    amiiboId = amiiboId,
+    name = name,
+    gameSeries = gameSeries,
+    character = character,
+    image = image,
 )

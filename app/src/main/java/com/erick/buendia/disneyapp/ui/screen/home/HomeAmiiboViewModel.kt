@@ -34,8 +34,8 @@ class HomeAmiiboViewModel @Inject constructor(
     fun addFavoriteAmiibo(amiibo: AmiiboModel) {
         amiibo.isFavorite = true
         _amiiboList.postValue(amiibo)
+        amiiboList = _amiiboList
         viewModelScope.launch(Dispatchers.IO) {
-            amiiboList = _amiiboList
             addFavoriteAmiiboUseCase(amiibo.amiiboId)
         }
 
@@ -50,8 +50,6 @@ class HomeAmiiboViewModel @Inject constructor(
     }
 
 }
-
-
 private fun <AmiiboModel> MutableLiveData<List<AmiiboModel>>.postValue(item: AmiiboModel) {
     val currentList = this.value ?: emptyList()
     this.value = currentList + item
