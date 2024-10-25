@@ -25,4 +25,4 @@ Puedes descargar el archivo [aquí](https://github.com/Erick-Buendia/Disney-App/
 ![1](https://github.com/user-attachments/assets/30746f1a-c52a-4aff-a4c4-5b67b6babc7d)
 
 ![4](https://github.com/user-attachments/assets/9d1d5036-1e48-474b-b18e-a49e34c17220)
-![4](https://github.com/user-attachments/assets/5b697971-def9-41a6-88c5-ff2e45a6af80)
+![3](https://github.com/user-attachments/assets/9477e06d-acc1-495e-9d9f-7ddb6e142dab)
